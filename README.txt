@@ -1,29 +1,19 @@
 ================================================================================
 CIFAR-10 Image Classification using ANN, CNN, and Hybrid Architectures
-Assignment 2 - CS 4045: Deep Learning for Perception
+================================================================================
+CONTENTS OF THIS REPO
 ================================================================================
 
-Student Information:
--------------------
-Name: Ahmed Murtaza Malik
-Roll Number: i22-0985
-Section: CS-A
-Date: October 23, 2025
+This repo contains the following files and directories:
 
-================================================================================
-CONTENTS OF THIS SUBMISSION
-================================================================================
-
-This submission contains the following files and directories:
-
-├── notebooks/
-│   └── i220985_A2.ipynb       
+├── i220985_A2.ipynb
 │
 ├── checkpoints/
 │   ├── ANN_best.pth      # Trained ANN model weights
 │   ├── CNN_best.pth      # Trained CNN model weights
 │   └── Hybrid_best.pth   # Trained Hybrid model weights
 │
+├── Assignment.pdf             
 ├── report.pdf             
 └── README.txt             # This file
 
