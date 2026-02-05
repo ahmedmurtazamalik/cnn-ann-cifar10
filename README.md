@@ -1,9 +1,6 @@
-================================================================================
 CIFAR-10 Image Classification using ANN, CNN, and Hybrid Architectures
-================================================================================
-CONTENTS OF THIS REPO
-================================================================================
 
+CONTENTS OF THIS REPO
 This repo contains the following files and directories:
 
 ├── i220985_A2.ipynb
@@ -17,18 +14,14 @@ This repo contains the following files and directories:
 ├── report.pdf             
 └── README.txt             # This file
 
-================================================================================
 SYSTEM REQUIREMENTS
-================================================================================
 
 Hardware Used:
--------------
 - CPU: AMD Ryzen 5-2600X
 - GPU: NVIDIA MSI GeForce GTX 1060 3GB
 - RAM: 16GB (recommended minimum: 8GB)
 
 Software Requirements:
----------------------
 - Python: 3.8 or higher
 - PyTorch: 2.0 or higher (with CUDA support for GPU)
 - torchvision: 0.15 or higher
@@ -42,12 +35,9 @@ To install all dependencies, run:
 Optional (for notebook execution):
     pip install jupyter notebook
 
-================================================================================
 REPRODUCIBILITY SETTINGS
-================================================================================
 
-Random Seeds (CRITICAL for reproducibility):
---------------------------------------------
+Random Seeds (Critical for reproducibility):
 All experiments use the following random seeds:
 
 - Python random seed: 42
@@ -58,7 +48,6 @@ All experiments use the following random seeds:
 These are set at the beginning of each notebook to ensure reproducible results.
 
 Dataset:
--------
 CIFAR-10 will be automatically downloaded by torchvision when you run the 
 notebooks for the first time. The dataset will be saved in a './data' directory.
 
@@ -67,29 +56,21 @@ notebooks for the first time. The dataset will be saved in a './data' directory.
 - Image size: 32×32×3 (RGB)
 - Classes: 10 (airplane, automobile, bird, cat, deer, dog, frog, horse, ship, truck)
 
-================================================================================
 HOW TO RUN THE NOTEBOOKS
-================================================================================
 
 Option 1: Running Locally
--------------------------
 1. Ensure all dependencies are installed (see Software Requirements above)
-
 2. Navigate to the notebooks/ directory:
    cd notebooks/
-
 3. Start Jupyter Notebook:
    jupyter notebook
-
 4. Open any of the three notebooks:
    - ANN.ipynb
    - CNN.ipynb
    - Hybrid.ipynb
-
 5. Run all cells sequentially from top to bottom:
    - Click "Cell" → "Run All" in the Jupyter menu
    - OR press Shift+Enter to run cells one by one
-
 6. The notebook will:
    - Download CIFAR-10 dataset (if not already present)
    - Define the model architecture
@@ -98,33 +79,25 @@ Option 1: Running Locally
    - Display results and visualizations
 
 Option 2: Running on Google Colab
----------------------------------
 1. Upload the notebook to Google Drive
-
 2. Open with Google Colab
-
 3. Enable GPU:
    - Click "Runtime" → "Change runtime type"
    - Select "GPU" from Hardware accelerator dropdown
    - Click "Save"
-
 4. Upload checkpoint files if you want to skip training:
    - Use the file upload feature in Colab
    - Adjust file paths in the notebook accordingly
-
 5. Run all cells sequentially
 
 Note: Training times will vary based on hardware. On Google Colab's free GPU,
 expect similar or faster training times compared to GTX 1060.
 
-================================================================================
 REPRODUCING FINAL RESULTS
-================================================================================
 
 To reproduce the exact test accuracies reported in the paper:
 
-METHOD 1: Load Pre-trained Checkpoints (RECOMMENDED - Fast)
-----------------------------------------------------------
+METHOD 1: Load Pre-trained Checkpoints (Recommended - Fast)
 1. Open the notebook
 
 2. Look for the section titled "8. Final Evaluation"
@@ -141,7 +114,6 @@ METHOD 1: Load Pre-trained Checkpoints (RECOMMENDED - Fast)
    - Hybrid Test Accuracy: 91.13%
 
 METHOD 2: Train from Scratch (SLOW - Requires GPU)
--------------------------------------------------
 1. Open the notebook
 
 2. Run all cells from the beginning
@@ -158,12 +130,9 @@ METHOD 2: Train from Scratch (SLOW - Requires GPU)
 Note: Due to randomness in training (even with fixed seeds), you may observe
 slight variations (±0.5%) in final accuracy when training from scratch.
 
-================================================================================
 MODEL ARCHITECTURES SUMMARY
-================================================================================
 
 ANN (Artificial Neural Network):
---------------------------------
 - Input: 32×32×3 images flattened to 3,072-dimensional vectors
 - Architecture: 4 fully-connected layers (2048→1024→512→256→10)
 - Parameters: 9,058,058
@@ -171,7 +140,6 @@ ANN (Artificial Neural Network):
 - Test Accuracy: 55.93%
 
 CNN (Convolutional Neural Network):
------------------------------------
 - Input: 32×32×3 images (spatial structure preserved)
 - Architecture: 3 convolutional blocks (64→128→256 filters)
 - Each block: 2×Conv3×3 + BatchNorm + ReLU + MaxPool2×2
@@ -180,18 +148,14 @@ CNN (Convolutional Neural Network):
 - Test Accuracy: 90.84%
 
 Hybrid (CNN Feature Extractor + ANN Classifier):
-------------------------------------------------
 - Feature Extractor: Same 3 CNN blocks as above
 - Classifier: 2-layer ANN (4096→512→256→10)
 - Parameters: 3,380,298
 - Test Accuracy: 91.13% (BEST)
 
-================================================================================
 TRAINING CONFIGURATION
-================================================================================
 
 Common Hyperparameters (All Models):
-------------------------------------
 - Optimizer: Adam
 - Learning Rate: 0.001
 - Weight Decay: 1e-4
@@ -202,7 +166,6 @@ Common Hyperparameters (All Models):
 - Loss Function: CrossEntropyLoss
 
 Data Preprocessing:
-------------------
 - Normalization: Mean=(0.4914, 0.4822, 0.4465), Std=(0.2470, 0.2435, 0.2616)
 - Training Augmentation:
   * RandomCrop(32, padding=4)
@@ -210,6 +173,5 @@ Data Preprocessing:
 - Validation/Test: Only normalization (no augmentation)
 
 Learning Rate Schedule:
-----------------------
 - Adaptive scheduler enabled
 - Reduces learning rate when validation loss plateaus
