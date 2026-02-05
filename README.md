@@ -3,6 +3,7 @@ CIFAR-10 Image Classification using ANN, CNN, and Hybrid Architectures
 CONTENTS OF THIS REPO
 This repo contains the following files and directories:
 
+```
 ├── i220985_A2.ipynb
 │
 ├── checkpoints/
@@ -13,6 +14,7 @@ This repo contains the following files and directories:
 ├── Assignment.pdf             
 ├── report.pdf             
 └── README.txt             # This file
+```
 
 SYSTEM REQUIREMENTS
 
